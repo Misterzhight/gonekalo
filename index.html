@@ -2,211 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Prière de délivrance</title>
-  
-  <!-- HTML -->
-  
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New AfroL Music Label</title>
   <style>
-    
-    img{
-  width: 300px;
-  height: 300px;
-}
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: console;
-}
-
-section {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #19172e;
-  padding: 40px;
-  position: relative;
-}
-
-section::before {
-  content: '';
-  position: absolute;
-  top: 29%;
-  right: 20%;
-  border-radius: 10px;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(#f9d924, #ff2c24);
-  animation: animate 5s ease-in-out infinite;
-}
-
-section::after {
-  content: '';
-  position: absolute;
-  bottom: 32%;
-  left: 20%;
-  border-radius: 10px;
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(#01d6ff, #0f24f9);
-  animation: animate 5s ease-in-out infinite;
-  animation-delay: -2.5s;
-}
-
-@keyframes animate {
-  
-  0%,
-  100% {
-    transform: translateY(16px);
-  }
-  
-  50% {
-    transform: translateY(-16px);
-  }
-}
-
-.clock {
-  position: relative;
-  width: 100%;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-}
-
-.clock .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.clock .container h2 {
-  font-size: 3em;
-  color: #f3f3f3;
-}
-
-.clock .container h2:nth-child(odd) {
-  padding: 5px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.2);
-  margin: 0 8px;
-}
-
-.clock .container h2#seconds {
-  color: #f9d524;
-}
-
-.clock .container span {
-  position: relative;
-  top: -30px;
-  font-size: 0.9em;
-  color: #f3f3f3;
-  font-weight: 700;
-}
-#show{
-  color: red;
-}
-center{
-  background: blue;
-  color: white;
-}
-    
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 2px solid #ff6600;
+    }
+    header h1 {
+      color: #ff6600;
+      margin: 0;
+    }
+    nav {
+      text-align: center;
+      background: #000;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff6600;
+    }
+    .artists {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .artist {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .artist img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .audio-player {
+      text-align: center;
+      margin: 40px 0;
+    }
+    audio {
+      width: 80%;
+      border-radius: 10px;
+    }
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
   </style>
 </head>
 <body>
-  <audio autoplay src="/img/Cedric_harmonie_qui_peut_spr_Jesus.mp3" id="myo"></audio>
-  <center>
-  <h1>3 jours de délivrance</h1>
-  <h3>Avec le prophète Pierre Mankan</h3>
-  <a href="https://ibb.co/ds5wR9Jd"><img src="https://i.ibb.co/wZzFfHr9/IMG-20250304-WA0003.jpg" alt="IMG-20250304-WA0003" border="0"></a>
-  </center>
-   <section>
-    <div class="clock">
-      <h2 id="show">16h-01m</h2>
-      <div class="container">
-        <h2 id="hour">00</h2>
-        <h2 class="dot">:</h2>
-        <h2 id="minute">00</h2>
-        <h2 class="dot">:</h2>
-        <h2 id="seconds">00</h2>
-        <span id="ampm">AM</span>
-      </div>
+
+  <header>
+    <h1>New AfroL Music Label</h1>
+    <p>Discover the rhythm of the future 🎧</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Artists</a>
+    <a href="#">Releases</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="artists">
+    <div class="artist">
+      <img src="https://via.placeholder.com/200x200.png?text=Artist+1" alt="Artist 1">
+      <h3>DJ Tempo</h3>
+      <p>Afrobeat / Dancehall</p>
+    </div>
+    <div class="artist">
+      <img src="https://via.placeholder.com/200x200.png?text=Artist+2" alt="Artist 2">
+      <h3>Luna Sky</h3>
+      <p>R&B / Soul</p>
+    </div>
+    <div class="artist">
+      <img src="https://via.placeholder.com/200x200.png?text=Artist+3" alt="Artist 3">
+      <h3>Young Blaze</h3>
+      <p>Rap / Trap</p>
     </div>
   </section>
-  
-  <script>
-    
-    function clock() {
-  let hour = document.getElementById('hour');
-  let minute = document.getElementById('minute');
-  let seconds = document.getElementById('seconds');
-  let ampm = document.getElementById('ampm');
-  
-  
-  let h = new Date().getHours();
-  let m = new Date().getMinutes();
-  let s = new Date().getSeconds();
-  var am = 'AM';
-  
-  if (h > 12) {
-    h = h - 12;
-    am = 'PM';
-  }
-  if (h == 0) {
-    document.getElementById("show").innerHTML = "12h" + "" + m
-  } else if (h == 1) {
-    document.getElementById("show").innerHTML = "13h" + "" + m
-  } else if (h == 2) {
-    document.getElementById("show").innerHTML = "14h" + "" + m
-  } else if (h == 3) {
-    document.getElementById("show").innerHTML = "15h" + "" + m
-  } else if (h == 4) {
-    document.getElementById("show").innerHTML = "16h" + "" + m
-  } else if (h == 5) {
-    document.getElementById("show").innerHTML = "17h" + "" + m
-  } else if (h == 6) {
-    document.getElementById("show").innerHTML = "18h" + "" + m
-  } else if (h == 7) {
-    document.getElementById("show").innerHTML = "19h" + "" + m
-  } else if (h == 8) {
-    document.getElementById("show").innerHTML = "20h" + "" + m
-  } else if (h == 9) {
-    document.getElementById("show").innerHTML = "21h" + "" + m
-  } else if (h == 10) {
-    document.getElementById("show").innerHTML = "22h" + "" + m
-  } else if (h == 11) {
-    document.getElementById("show").innerHTML = "23h" + "" + m
-  } else if (h == 12) {
-    document.getElementById("show").innerHTML = "24h" + "" + m
-  }
-  
-  
-  h = (h < 10) ? '0' + h : h;
-  m = (m < 10) ? '0' + m : m;
-  s = (s < 10) ? '0' + s : s;
-  
-  hour.innerHTML = h;
-  minute.innerHTML = m;
-  seconds.innerHTML = s;
-  ampm.innerHTML = am;
-  
-};
 
-var interval = setInterval(clock, 1000);
-  </script>
+  <section class="audio-player">
+    <h2>Now Playing: AfroL Mix</h2>
+    <audio controls>
+      <source src="https://archive.org/download/newafrol/newafrol.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <footer>
+    <p>© 2025 New AfroL Music Label | All rights reserved</p>
+  </footer>
+
 </body>
 </html>
