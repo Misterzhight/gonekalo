@@ -103,10 +103,16 @@
 
   <section class="audio-player">
     <h2>Now Playing: lazrin</h2>
-    <audio controls>
-      <source src="https://archive.org/download/newafrol/newafrol.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <div class="audio-player">
+  <div class="buttons">
+    <button id="play"><span>▶️</span></button>
+    <button id="pause"><span>⏸️</span></button>
+  </div>
+  <div class="title">🎵 Sample Audio</div>
+  <a href="your-audio-file.mp3" download class="download">Download</a>
+
+  <audio id="audio" src="your-audio-file.mp3"></audio>
+</div>
   </section>
 
   <footer>
