@@ -124,6 +124,46 @@
     background: #0284c7;
     transform: scale(1.05);
   }
+
+
+      .results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .video {
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+  }
+
+  .video:hover {
+    transform: scale(1.03);
+  }
+
+  .video img {
+    width: 100%;
+  }
+
+  .video-info {
+    padding: 12px;
+  }
+
+  .video-title {
+    color: #f8fafc;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .video-title:hover {
+    color: #0ea5e9;
+  }
     
   </style>
 </head>
@@ -139,8 +179,12 @@
     <a href="#">Artists</a>
     <a href="#">Releases</a>
     <a href="#">Contact</a>
-    
-</form>
+
+         <form action="https://www.youtube.com/results" method="get" target="_blank">
+         <input type="text" name="search_query" placeholder="Search Artist..." />
+         <button type="submit">Search</button>
+     
+       
   </nav>
 
   <section class="artists">
@@ -173,10 +217,9 @@
 
   <audio id="audio" src="https://archive.org/download/newafrol/newafro.mp3"></audio>
 </div>
-
-    <form action="https://www.youtube.com/results" method="get" target="_blank">
-  <input type="text" name="search_query" placeholder="Search Artist..." />
-  <button type="submit">Search</button><br><br>
+ 
+  <div class="results" id="results"></div>
+    
   </section>
 
   <footer>
@@ -196,6 +239,46 @@
   pauseBtn.addEventListener("click", () => {
     audio.pause();
   });
+
+       const API_KEY = "AIzaSyD1RUw-Zaa7gvTseXaUFdIvBrAtWdhiuHs"; // <-- Replace this!
+
+  document.getElementById("searchBtn").addEventListener("click", searchYouTube);
+
+  function searchYouTube() {
+    const query = document.getElementById("query").value.trim();
+    if (!query) return;
+
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=9&q=${encodeURIComponent(query)}&key=${API_KEY}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+
+        data.items.forEach(item => {
+          const videoId = item.id.videoId;
+          const title = item.snippet.title;
+          const thumbnail = item.snippet.thumbnails.medium.url;
+          const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+          const videoCard = document.createElement("div");
+          videoCard.classList.add("video");
+          videoCard.innerHTML = `
+            <a href="${videoUrl}" target="_blank">
+              <img src="${thumbnail}" alt="${title}">
+            </a>
+            <div class="video-info">
+              <a href="${videoUrl}" target="_blank" class="video-title">${title}</a>
+            </div>
+          `;
+          resultsDiv.appendChild(videoCard);
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching videos:", error);
+      });
+  }
 </script>
 </body>
 </html>
